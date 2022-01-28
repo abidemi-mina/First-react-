@@ -1,0 +1,14 @@
+.Col{
+    /* column-rule-color: aquamarine; */
+    column-fill: auto;
+    border: 2px dotted indigo ;
+    /* border-color: forestgreen; */
+    /* column-rule-style: ; */
+  }
+h2{
+    font-weight: bolder;
+    color:purple;
+}
+.Row{
+    border: 5px groove indigo;
+}
