@@ -65,6 +65,8 @@ class App extends Component{
   state={
     post:null,
     isLoading:true,
+    err:null,
+    show:false,
   }
   componentDidMount(){
         axios.get('https://jsonplaceholder.typicode.com/posts')
@@ -72,16 +74,26 @@ class App extends Component{
             this.setState({
               post:response.data,
               isLoading:false,
+              err:null,
               
-            })
-            
+            })    
         })
         .catch((error) =>{
-            console.log(error.response)
+          console.log( error); 
+          this.setState({
+            err:error,
+            show:true,
+            isLoading:false,
+          })
+          
+            
         })
   }
 
   render(){
+    const {post,isLoading,show,err} =this.state
+  
+    
     return(
       <div>
         {/* Nav section */}
@@ -92,7 +104,7 @@ class App extends Component{
           {/* <Route path="/post" 
            render={(routerProps) => <Post post={this.state.post}/>}
           /> */}
-          <Route path="/post" element={<Post posts={this.state.post} loading={this.state.isLoading} />}
+          <Route path="/post" element={<Post posts={post} loading={isLoading} show={show} err={err} />}
           />
           <Route path="/about" element={<About/>}/>
           <Route path="/login" element={<Login/>}/>

@@ -14,9 +14,9 @@ function Navigation() {
           <Nav.Item>
             <Nav.Link as={Link} to="/post">Post</Nav.Link>
           </Nav.Item>
-          <Nav.Item>
+          {/* <Nav.Item>
             <Nav.Link as={Link} to="/login">Login</Nav.Link>
-          </Nav.Item>
+          </Nav.Item> */}
         </Nav>
   );
 }
